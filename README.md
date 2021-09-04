@@ -1,4 +1,4 @@
-# driver_license_gen
+# driver license generator
 
 U.S. driver license generator
 
