@@ -1,1 +1,2 @@
 from .SourcesLoaderDist import SourcesLoader
+from .NameGeneratorDist import NameGenerator

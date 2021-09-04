@@ -1,6 +1,7 @@
 import unittest
 
 from distributions import SourcesLoader
+from distributions import NameGenerator
 
 class TestSourcesLoaderClass(unittest.TestCase):
     
@@ -20,6 +21,24 @@ class TestSourcesLoaderClass(unittest.TestCase):
             self.assertEqual(len(name) >= 3, True, name +' is not a valid last name')
         pass
 
+
+class TestNameGeneratorClass(unittest.TestCase):
+
+    def setUp(self):
+        self.loader = SourcesLoader()
+        self.first_names = self.loader.get_first_names()
+        self.last_names = self.loader.get_last_names()
+
+        self.generator = NameGenerator(self.first_names, self.last_names)
+
+    def test_generate_first_name(self):
+        new_name = self.generator.get_new_fname()
+        self.assertEqual(len(new_name) >= 3, True, new_name +' is not a valid first name')
+
+    def test_generate_last_name(self):
+        new_name = self.generator.get_new_lname()
+        self.assertEqual(len(new_name) >= 3, True, new_name +' is not a valid last name')
+    
 
     
 if __name__ == '__main__':
