@@ -3,6 +3,7 @@ import unittest
 from distributions import SourcesLoader
 from distributions import NameGenerator
 from distributions import DateGenerator
+from distributions import ClassLicenseGenerator
 
 class TestSourcesLoaderClass(unittest.TestCase):
     
@@ -51,6 +52,15 @@ class TestDateGeneratorClass(unittest.TestCase):
         new_date = self.generator.get_new_date()
         self.assertEqual(len(new_date) == 10, True, 'date is not valid')
 
+
+class TestClassLicenseGeneratorClass(unittest.TestCase):
+
+    def setUp(self):
+        self.generator = ClassLicenseGenerator()
+
+    def test_new_doc_class(self):
+        new_doc = self.generator.get_new_class()
+        self.assertEqual(new_doc in ['A','C','M','B'], True,' it is not an valid class')
 
 if __name__ == '__main__':
     unittest.main()
