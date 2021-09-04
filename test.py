@@ -2,6 +2,7 @@ import unittest
 
 from distributions import SourcesLoader
 from distributions import NameGenerator
+from distributions import DateGenerator
 
 class TestSourcesLoaderClass(unittest.TestCase):
     
@@ -40,6 +41,16 @@ class TestNameGeneratorClass(unittest.TestCase):
         self.assertEqual(len(new_name) >= 3, True, new_name +' is not a valid last name')
     
 
-    
+
+class TestDateGeneratorClass(unittest.TestCase):
+
+    def setUp(self):
+        self.generator = DateGenerator()
+        
+    def test_new_date(self):
+        new_date = self.generator.get_new_date()
+        self.assertEqual(len(new_date) == 10, True, 'date is not valid')
+
+
 if __name__ == '__main__':
     unittest.main()
